@@ -1,0 +1,51 @@
+// Uppgift 2 - Variabler och scope
+
+{
+  var a = 10;
+  let b = 20;
+  const c = 30;
+
+  console.log("Inuti blocket:", a, b, c);
+}
+
+// console.log före blocket fungerar inte här eftersom variablerna inte är deklarerade ännu
+
+console.log("Efter blocket - var a:", a);
+// console.log("Efter blocket - let b:", b); // Ger fel
+// console.log("Efter blocket - const c:", c); // Ger fel
+
+/* Reflektion uppgift 2:
+ var ignorerar block och läcker utanför, medan let och const stannar i blocket.
+ console.log före blocket ger fel för let/const men inte för var. Inuti blocket funkar alla. Efter blocket funkar bara var. */
+
+// Uppgift 3 - Jämförelser och specialvärden
+console.log("3" == 3); // true
+console.log("3" === 3); // false
+console.log(NaN === NaN); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+let result = undefined ? "Truthy" : "Falsy";
+console.log(result);
+
+/* Reflektion uppgift 3:
+ == gör typkonvertering medan === jämför både typ och värde.
+ Ett uttryck som står ensamt i en ternary eller if utvärderas till true/false beroende på truthy/falsy.
+ NaN betyder "Not a Number", undefined betyder att något inte har fått ett värde, och null är ett avsiktligt tomt värde. */
+
+// Uppgift 4 - Funktioner
+function greet(name) {
+  return "Hej " + name;
+}
+
+console.log(greet("Abdi"));
+
+let name = "Ali";
+console.log("Global name:", name);
+console.log("Greet med global variabel:", greet(name));
+
+/* Reflektion uppgift 4:
+ Funktionsdeklaration kan användas innan den skrivs, till skillnad från funktionsuttryck och arrow-funktion.
+ Jag valde deklaration för att den är tydligast i det här fallet.
+ Parametern name skuggar den globala variabeln name när funktionen körs.
+ En parameter är ett platshållarnamn i funktionen, variabel är lagring av data och argument är värdet man skickar in i funktionen. */
